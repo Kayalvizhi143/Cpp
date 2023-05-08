@@ -1,0 +1,65 @@
+//S.Kayalvizhi
+//Vivekanandha college of engineering for women
+
+#include <iostream>
+using namespace std;
+
+class Weather {
+  private:
+    string location;
+    int temperature;
+
+  public:
+    Weather(string loc, int temp) {
+      location = loc;
+      temperature = temp;
+    }
+
+    void displayWeather() {
+      cout << "Location: " << location << endl;
+      cout << "Temperature: " << temperature << " degrees Celsius" << endl;
+    }
+
+    void convertToFahrenheit() {
+      temperature = temperature * 9/5 + 32;
+      cout << "Temperature in Fahrenheit: " << temperature << " degrees Fahrenheit" << endl;
+    }
+};
+
+int main() {
+  string loc;
+  int temp;
+  char choice;
+
+  cout << "Enter location: ";
+  cin >> loc;
+  cout << "Enter temperature in Celsius: ";
+  cin >> temp;
+
+  Weather weather(loc, temp);
+
+  do {
+    cout << "\nWeather App Menu\n";
+    cout << "1. Display weather\n";
+    cout << "2. Convert temperature to Fahrenheit\n";
+    cout << "3. Exit\n";
+    cout << "Enter choice: ";
+    cin >> choice;
+
+    switch(choice) {
+      case '1':
+        weather.displayWeather();
+        break;
+      case '2':
+        weather.convertToFahrenheit();
+        break;
+      case '3':
+        cout << "Exiting Weather App...\n";
+        break;
+      default:
+        cout << "Invalid choice\n";
+    }
+  } while (choice != '3');
+
+  return 0;
+}
